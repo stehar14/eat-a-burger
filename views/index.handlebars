@@ -1,7 +1,13 @@
-<h1>Eat-Da-Burger!</h1>
+<div class= "containter">
+	<div class = "col-md-4"></div>
+	<div class= "col-md-4">
+		<h1>Eat-Da-Burger!</h1>
+		<img class="img-responsive" href="../public/image/chalk-burger.jpg">
+		<h2>Order and eat whatever burger you please!</h2>
+	</div>
+</div>
 
-<h2>Order and eat whatever burger you please!</h2>
-
+<h2>Burgers to eat!</h2>
 <ul>
 	{{#each burgers}}
 		{{#unless devoured}}
@@ -9,16 +15,6 @@
 			<button type="button" class="btn btn-primary eat">Eat It</button>
 		</li>
 		{{/unless}}
-	{{/each}}
-</ul>
-
-<h2>Burgers that are eaten!</h2>
-
-<ul>
-	{{#each burgers}}
-		{{#if devoured}}
-		<li style=" border-radius: 5px; color: black; background:rgb(255, 255, 255); margin: 5px; padding: 5px;">{{this.burger_name}}</li>
-		{{/if}}
 	{{/each}}
 </ul>
 
@@ -32,6 +28,17 @@
 
 <button type="submit" id="submit">Add Burger</button>
 </form>
+
+<h2>Burgers that have been eaten!</h2>
+
+<ul>
+	{{#each burgers}}
+		{{#if devoured}}
+		<li style=" border-radius: 5px; color: black; background:rgb(255, 255, 255); margin: 5px; padding: 5px;">{{this.burger_name}}</li>
+		{{/if}}
+	{{/each}}
+</ul>
+
 
 <script>
 	$('#submit').on('click', function(event){
