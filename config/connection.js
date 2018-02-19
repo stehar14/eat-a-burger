@@ -1,14 +1,19 @@
 // Dependenies
 var mysql = require("mysql");
-
-// Define connection
-var con = mysql.createConnection({
-    port: 3306,
-    host: "localhost",
-    user: "nodeuser",
-    password: "nodeuser",
-    database: "burgers_db"
-});
+var con;
+if(process.env.JAWSDB_URL) {
+  //Heroku deployment
+    con = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  //local host
+    con = mysql.createConnection({
+        port: 3306,
+        host: "localhost",
+        user: "nodeuser",
+        password: "nodeuser",
+        database: "burgers_db"
+    });
+};
 
 // Make connection
 con.connect(function(err) {
