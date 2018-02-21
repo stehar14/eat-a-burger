@@ -58,7 +58,7 @@
 		event.preventDefault();
 		var new_entry = $('#burger').val();
 		$.post('/', {burger: new_entry});
-		location.reload();
+		location.href = location.href;
 	})
 	
 	$('.eat').on('click', function(event) {
@@ -72,9 +72,9 @@
 		}).then(
 			function() {
 				console.log("burger devoured");
-				location.reload();
+				location.href = location.href;
 			}
 		);
-		location.reload();
+		location.href = location.href;
 	});
 </script>
